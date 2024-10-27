@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>TODO LIST ABDI</title>
+</head>
+<body>
+    <div class="app-container">
+        <div class="todo-container">
+            <header>
+                <h1><i class="fas fa-check-double"></i> TODO LIST AING</h1>
+                <button id="settings-toggle" class="settings-btn">
+                    <i class="fas fa-cog"></i>
+                </button>
+            </header>
+
+            <div class="input-section">
+                <input type="text" id="todo-input" placeholder="Tambah tugas baru bangg... (Tekan Enter ae)">
+                <span class="input-border"></span>
+            </div>
+
+            <div class="todo-stats">
+                <span id="tasks-counter">0 tugas</span>
+                <span id="completed-counter">0 selesai</span>
+            </div>
+
+            <ul id="todo-list"></ul>
+        </div>
+
+        <div class="settings-panel" id="settings-panel">
+            <h2>Pengaturan</h2>
+            <div class="setting-item">
+                <label>Ukuran Font</label>
+                <input type="range" id="font-size" min="12" max="24" value="16">
+                <span id="font-size-value">16px</span>
+            </div>
+
+            <div class="setting-item">
+                <label>Font Style</label>
+                <select id="font-family">
+                    <option value="'Poppins', sans-serif">Poppins</option>
+                    <option value="'Roboto', sans-serif">Roboto</option>
+                    <option value="'Open Sans', sans-serif">Open Sans</option>
+                    <option value="'Montserrat', sans-serif">Montserrat</option>
+                </select>
+            </div>
+
+            <div class="setting-item">
+                <label>Warna Latar</label>
+                <input type="color" id="bg-color" value="#ffffff">
+            </div>
+
+            <div class="setting-item">
+                <label>Tema Gelap</label>
+                <label class="switch">
+                    <input type="checkbox" id="dark-mode">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

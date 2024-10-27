@@ -1,0 +1,216 @@
+:root {
+    --primary-color: #6C63FF;
+    --secondary-color: #4CAF50;
+    --accent-color: #FF6B6B;
+    --text-color: #2D3436;
+    --bg-color: #F0F2F5;
+    --container-bg: #ffffff;
+    --shadow-color: rgba(108, 99, 255, 0.1);
+    --gradient: linear-gradient(135deg, #6C63FF, #4CAF50);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--bg-color);
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.app-container {
+    min-height: 100vh;
+    display: flex;
+    padding: 20px;
+    background: linear-gradient(45deg, rgba(108, 99, 255, 0.1), rgba(76, 175, 80, 0.1));
+}
+
+.todo-container {
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+    background: var(--container-bg);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px var(--shadow-color);
+    padding: 25px;
+    animation: slideIn 0.5s ease;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    background: var(--gradient);
+    padding: 15px;
+    border-radius: 12px;
+    color: white;
+}
+
+h1 {
+    font-size: 1.8rem;
+    background: linear-gradient(45deg, #fff, #e0e0e0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.todo-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    background: #f8f8f8;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    transition: all 0.3s ease;
+    border-left: 4px solid var(--primary-color);
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.todo-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.todo-item.completed {
+    background: #E8F5E9;
+    border-left: 4px solid var(--secondary-color);
+}
+
+.todo-actions button {
+    padding: 8px;
+    margin-left: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.todo-actions button:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: scale(1.1);
+}
+
+
+body.dark-mode {
+    --bg-color: #1A1B1E;
+    --container-bg: #2D2E32;
+    --text-color: #E4E6EB;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .todo-item {
+    background: #3A3B3F;
+    color: #E4E6EB;
+}
+
+body.dark-mode .todo-item.completed {
+    background: #2D3436;
+    color: #A0A0A0;
+}
+
+
+.settings-panel {
+    position: fixed;
+    right: -300px;
+    top: 0;
+    width: 300px;
+    height: 100vh;
+    background: var(--container-bg);
+    padding: 20px;
+    box-shadow: -5px 0 15px var(--shadow-color);
+    transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1000;
+}
+
+.settings-panel.active {
+    right: 0;
+}
+
+.setting-item {
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 12px;
+    background: rgba(108, 99, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.setting-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(108, 99, 255, 0.2);
+}
+
+
+#todo-input {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    font-size: 1rem;
+    background: #f8f8f8;
+    transition: all 0.3s ease;
+}
+
+#todo-input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(108, 99, 255, 0.1);
+    outline: none;
+}
+
+
+.todo-stats {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+    padding: 10px;
+    background: linear-gradient(135deg, rgba(108, 99, 255, 0.1), rgba(76, 175, 80, 0.1));
+    border-radius: 12px;
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .app-container {
+        padding: 10px;
+    }
+
+    .settings-panel {
+        width: 100%;
+        right: -100%;
+    }
+
+    .todo-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .todo-actions {
+        margin-top: 10px;
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+    }
+}
